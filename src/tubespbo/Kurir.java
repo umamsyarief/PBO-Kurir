@@ -16,6 +16,8 @@ public class Kurir extends javax.swing.JFrame {
      */
     public Kurir() {
         initComponents();
+        jTextArea1.setEditable(false);
+        jTextArea1.setText(Loginable.session);
     }
 
     /**

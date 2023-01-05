@@ -10,12 +10,13 @@ package tubespbo;
  * @author Klik Art
  */
 public class Loginable extends javax.swing.JFrame {
-
+    public static String session = "contoh";
     /**
      * Creates new form Loginable
      */
     public Loginable() {
         initComponents();
+        
     }
 
     /**
