@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Klik Art
  */
 public class Loginable extends javax.swing.JFrame {
-    public static String session = "contoh";
+    public static String session;
     /**
      * Creates new form Loginable
      */
@@ -22,6 +22,11 @@ public class Loginable extends javax.swing.JFrame {
         initComponents();
         
     }
+
+    public String getSession() {
+        return session;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -126,6 +131,7 @@ public class Loginable extends javax.swing.JFrame {
             Statement stm = (Statement) koneksi.getConnection().createStatement();
             ResultSet res=stm.executeQuery(sql);
             if (res.next()){
+                session = res.getString("ID");
                 if ("Admin".equals(res.getString(4))){
                     Admin admin = new Admin();
                     admin.setVisible(true);
