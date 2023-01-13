@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,8 +25,24 @@ public class Pengirim extends javax.swing.JFrame {
     public Pengirim() {
         initComponents();
         textField();
+        load_combo();
     }
 
+    public void load_combo(){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        try {
+            String sql = "SELECT * FROM barang";
+            Statement stm = (Statement) koneksi.getConnection().createStatement();
+            ResultSet res = stm.executeQuery(sql);
+            while (res.next()){
+                model.addElement(res.getString("No_Resi"));
+            }
+            resiItem.setModel(model);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
     public void textField() {
         try {
             Loginable login = new Loginable();
@@ -64,7 +82,6 @@ public class Pengirim extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        resiField = new javax.swing.JTextField();
         resiButton = new javax.swing.JButton();
         tambahButton = new javax.swing.JButton();
         simpanButton = new javax.swing.JButton();
@@ -87,6 +104,11 @@ public class Pengirim extends javax.swing.JFrame {
         jLabel7.setText("No Resi");
 
         resiButton.setText("Cek Resi");
+        resiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resiButtonActionPerformed(evt);
+            }
+        });
 
         tambahButton.setText("Tambah Barang");
 
@@ -126,7 +148,6 @@ public class Pengirim extends javax.swing.JFrame {
                             .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(usernameField)
                             .addComponent(noTelepon)
-                            .addComponent(resiField)
                             .addComponent(resiItem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(simpanButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -161,9 +182,7 @@ public class Pengirim extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(resiItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resiField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(simpanButton)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -186,6 +205,22 @@ public class Pengirim extends javax.swing.JFrame {
             Logger.getLogger(Pengirim.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_simpanButtonActionPerformed
+
+    private void resiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resiButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            String sql = "SELECT * FROM kurir WHERE no_resi='"+resiItem.getSelectedItem().toString()+"'";
+            Statement stm = (Statement) koneksi.getConnection().createStatement();
+            ResultSet res = stm.executeQuery(sql);
+            while (res.next()){
+                JOptionPane.showMessageDialog(null, res.getString("status_terkirim"));
+            }
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    
+    }//GEN-LAST:event_resiButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,7 +273,6 @@ public class Pengirim extends javax.swing.JFrame {
     private javax.swing.JTextField noTelepon;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton resiButton;
-    private javax.swing.JTextField resiField;
     private javax.swing.JComboBox<String> resiItem;
     private javax.swing.JButton simpanButton;
     private javax.swing.JButton tambahButton;

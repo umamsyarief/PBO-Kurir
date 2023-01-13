@@ -48,7 +48,6 @@
                           <Component id="emailField" pref="150" max="32767" attributes="0"/>
                           <Component id="usernameField" max="32767" attributes="0"/>
                           <Component id="noTelepon" max="32767" attributes="0"/>
-                          <Component id="resiField" alignment="0" max="32767" attributes="0"/>
                           <Component id="resiItem" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -94,9 +93,7 @@
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="resiItem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="resiField" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
               <Component id="simpanButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -154,12 +151,13 @@
         <Property name="text" type="java.lang.String" value="No Resi"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="resiField">
-    </Component>
     <Component class="javax.swing.JButton" name="resiButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cek Resi"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resiButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="tambahButton">
       <Properties>
