@@ -50,22 +50,20 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Kurir");
 
         jLabel2.setText("Resi");
 
@@ -75,6 +73,10 @@ public class Admin extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("Kurir");
+
+        jLabel3.setText("        ");
 
         jButton1.setText("Show Barang");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,17 +99,15 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel4.setText("No Resi");
 
-        jLabel6.setText("Ongkir");
-
-        jLabel7.setText("Status");
-
         jLabel8.setText("        ");
 
-        jLabel10.setText("        ");
+        jLabel6.setText("Ongkir");
 
         jLabel11.setText("        ");
 
-        jLabel9.setText("        ");
+        jLabel7.setText("Status");
+
+        jLabel10.setText("        ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,13 +141,9 @@ public class Admin extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel4)
                                 .addGap(46, 46, 46)
-                                .addComponent(jLabel8)))))
+                                .addComponent(jLabel8)))
+                        .addComponent(jLabel3)))
                 .addGap(12, 12, 12))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(111, 111, 111)
-                    .addComponent(jLabel9)
-                    .addContainerGap(181, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +161,9 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jLabel1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)))
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -180,11 +178,6 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel10))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(109, 109, 109)
-                    .addComponent(jLabel9)
-                    .addContainerGap(71, Short.MAX_VALUE)))
         );
 
         pack();
@@ -219,7 +212,7 @@ public class Admin extends javax.swing.JFrame {
                 jLabel8.setText(res.getString("no_resi"));
                 jLabel10.setText(res.getString("status_terkirim"));
                 if ("2".equals(res.getString("ID_user"))){
-                    jLabel9.setText("Izy");
+                    jLabel3.setText("Izy");
                 }
             }
         } catch (Exception e){
@@ -270,10 +263,10 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
